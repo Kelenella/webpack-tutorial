@@ -39,6 +39,10 @@ module.exports = {
       {
         test: /\.(scss|css)$/,
         use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+        },
+      {
+        test: /\.hbs$/, exclude: /node_modules/,
+        use: "handlebars-loader",
       },
         ],
     },
