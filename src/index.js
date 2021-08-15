@@ -33,3 +33,6 @@ const markup = questionsTemplate(serverData)
 refs.root.insertAdjacentHTML('beforeend', markup)
 
 refs.form.addEventListener('submit', submitHandler)
+
+localStorage.setItem('theme', 'dark')
+localStorage.getItem('theme')
