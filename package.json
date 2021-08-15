@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/Kelenella/webpack-tutorial/issues"
   },
-  "homepage": "https://github.com/Kelenella/webpack-tutorial#readme",
+  "homepage": "https://github.com/Kelenella/webpack-tutorial/src/template.html",
   "dependencies": {
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "handlebars": "^4.7.7",
