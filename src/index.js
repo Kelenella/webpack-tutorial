@@ -23,16 +23,36 @@
 import refs from './js/refs.js'
 import { submitHandler } from './js/handlers.js'
 import questionsTemplate from './templates/questions.hbs'
-import serverData from './data/serverData.js';
+import serverData from './data/serverData.js'
+import { createLi } from './js/templateStringHandler.js'
 
 import "./styles/main.scss";
 // 1) Получить доступ к данным формы - событие Submit
 // 2) На основе данных из формы нарисовать элемент списка - hbs для отрисовки элементов
 
-const markup = questionsTemplate(serverData)
-refs.root.insertAdjacentHTML('beforeend', markup)
+// const markup = questionsTemplate(serverData)
+// refs.root.insertAdjacentHTML('beforeend', markup)
 
+// refs.form.addEventListener('submit', submitHandler)
+
+// localStorage.setItem('theme', 'dark')
+// const theme = localStorage.getItem('theme')
+// console.log(theme);
+
+// const settings = {
+//     theme: "pink",
+//     fontSize: 12,
+//     fontFamily: "Roboto",
+// }
+
+// const dataForStorage = JSON.stringify(settings)
+// localStorage.setItem("settings", dataForStorage)
+
+// const data = localStorage.getItem('settings')
+// console.log(JSON.parse(data));
+
+
+// Переписываем todo-list под шаблонную строку
+const result = serverData.map((string) => createLi(string)).join('');
+refs.ul.insertAdjacentHTML('beforeend', result)
 refs.form.addEventListener('submit', submitHandler)
-
-localStorage.setItem('theme', 'dark')
-localStorage.getItem('theme')
