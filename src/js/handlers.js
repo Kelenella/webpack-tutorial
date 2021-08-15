@@ -14,12 +14,18 @@ import { createLi } from '../js/templateStringHandler.js';
 //     refs.root.innerHTML = markup;
     
 // }
+
 export function submitHandler(e) {
     e.preventDefault();
     const inputValue = refs.input.value;
-    if (inputValue === '') return
-    createLi(inputValue)
-    refs.ul.insertAdjacentHTML('beforeend', createLi(inputValue))
+    
+    createLi(inputValue);
+    if (inputValue === '') return;
+    refs.ul.insertAdjacentHTML("beforeend", createLi(inputValue));
+    const array = JSON.parse(localStorage.getItem("list"));
+    const arrayForStorage = array ? array : [];
+    arrayForStorage.push(inputValue);
+    localStorage.setItem("list", JSON.stringify(arrayForStorage));
     refs.input.value = '';
-      
+    
 }

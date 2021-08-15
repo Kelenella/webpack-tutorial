@@ -52,7 +52,11 @@ import "./styles/main.scss";
 // console.log(JSON.parse(data));
 
 
-// Переписываем todo-list под шаблонную строку
-const result = serverData.map((string) => createLi(string)).join('');
+// Переписываем todo-list под шаблонную строку и сохраняем списки в локал сторедж
+
+const storageCollection = JSON.parse(localStorage.getItem("list"))
+const dataFromStorage = storageCollection ? storageCollection : [];
+const result = dataFromStorage.map((string) => createLi(string)).join('')
+    
 refs.ul.insertAdjacentHTML('beforeend', result)
 refs.form.addEventListener('submit', submitHandler)
